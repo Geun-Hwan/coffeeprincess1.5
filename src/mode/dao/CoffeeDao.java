@@ -10,7 +10,9 @@ import java.util.ArrayList;
 
 import model.vo.Coffee;
 
+//DAO(Data Access Object)
 public class CoffeeDao {
+	
 	public ArrayList<Coffee> openList(){
 		ArrayList<Coffee> list=new ArrayList<Coffee>();
 		
@@ -44,8 +46,7 @@ public class CoffeeDao {
 		return result;
 	}
 	
-	public void outStream(ObjectOutputStream out, Coffee co) {
-		
+	public void outStream(ObjectOutputStream out, Coffee co) { 
 		try {
 			out.writeObject(co);
 		}catch(IOException e) {

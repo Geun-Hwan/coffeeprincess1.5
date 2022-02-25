@@ -1,5 +1,6 @@
 package model.vo;
 
+//VO(Value Object)
 @SuppressWarnings("serial")
 public class Coffee implements java.io.Serializable {
 	private int orderNo;// 커피 주문 번호

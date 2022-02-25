@@ -70,10 +70,6 @@ public class CoffeeMenu {
 			sc.nextLine();
 			switch (sel) {
 			case 1:
-				if(cm.getCount()>=cm.getOrderArr().length) {
-					System.out.println("주문 수 초과");
-					showMenu();
-				}
 				insertCoffee();// 커피 주문 메서드
 				break;
 			case 2:
@@ -91,9 +87,9 @@ public class CoffeeMenu {
 			case 6:
 				System.out.print("정말 종료 하시겠습니까? (Y/N): ");
 				if (sc.nextLine().toUpperCase().charAt(0) == 'Y') {
-					// ??
 					System.out.println("프로그램 종료!");
 					sc.close();
+					cm.close(); // ??
 					return;
 				} else
 					System.out.println("메뉴를 다시 불러옵니다.");
@@ -221,7 +217,7 @@ public class CoffeeMenu {
 			System.out.println(cm.verifyCoffee(orderNo));
 			System.out.print("정말 취소 하시겠습니까? (Y/N):");
 			if (sc.nextLine().toUpperCase().charAt(0) == 'Y') {
-				cm.deleteCoffee(orderNo-1);
+				cm.deleteCoffee(orderNo - 1);
 				System.out.println("주문이 정상적으로 취소되었습니다.");
 			} else {
 				System.out.println("메인으로 돌아갑니다.");
@@ -233,14 +229,10 @@ public class CoffeeMenu {
 	}
 
 	public static void selectCoffeeAll() {
-		if (cm.getCount() > 0) {
-			System.out.println("전체 주문 내역");
-			for (int i = 0; i < cm.getCount(); i++) {
-				System.out.println(cm.getOrderArr()[i]);
-			}
-		
-		} else
-			System.out.println("주문 내역이 없습니다.");
+		System.out.println("전체 주문 내역");
+		for (Coffee cp : cm.getOrderList()) {
+			System.out.println(cp);
+		}
+
 	}
-	
 }
